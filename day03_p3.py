@@ -30,6 +30,7 @@ num = input("Enter a number (or 'done' to finish): ")
 while num.lower() != 'done':
     try:
         number = float(num)
+        numbers.append(number)
     except ValueError:
         print("Invalid input. Please enter a valid number.")
     num = input("Enter a number (or 'done' to finish): ")
