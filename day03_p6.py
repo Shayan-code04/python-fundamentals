@@ -1,8 +1,14 @@
 def create_account(**kwargs):
+    # Use provided kwargs or prompt the user for missing values
+    name = kwargs.get('name') or input("Enter your name: ")
+    # if balance provided in kwargs, ensure it's a float
+    balance = float(kwargs.get('balance')) if 'balance' in kwargs else float(input("Enter your initial balance: ") or 0.0)
+    pin = kwargs.get('pin') or input("Enter your PIN: ")
+
     account = {
-        'name': kwargs.get('name', 'Guest'),
-        'balance': kwargs.get('balance', 0.0),
-        'pin': kwargs.get('pin', '0000'),
+        'name': name,
+        'balance': balance,
+        'pin': str(pin),
     }
     # Keep any extra details passed in kwargs
     for key, value in kwargs.items():
@@ -41,6 +47,8 @@ def atm_menu(account):
             print("Invalid option. Try again.")
 
 
-if __name__ == '__main__':
-    account = create_account(name='Raj', balance=250.75, pin='4321', account_type='savings')
+if __name__ == "__main__":
+    # Call without kwargs so the user is prompted, or pass values like:
+    # account = create_account(name="Raj", balance=100.0, pin="1234")
+    account = create_account()
     atm_menu(account)
