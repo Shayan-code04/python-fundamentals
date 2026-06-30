@@ -1,13 +1,15 @@
+def flatten_list(nested):
+    """Flattens a list of lists into a single flat list using nested loops."""
+    flat = []
+    for sublist in nested:
+        for item in sublist:
+            flat.append(item)
+    return flat
+
+def flatten_list_comp(nested):
+    """Flattens a list of lists into a single flat list using comprehension."""
+    return [item for sublist in nested for item in sublist]
+
 nested = [[1, 2], [3, 4], [5, 6]]
-
-# loop version
-flat_list_loop = []
-for sublist in nested:
-    for item in sublist:
-        flat_list_loop.append(item)
-
-# comprehension version
-flat_list_comp = [item for sublist in nested for item in sublist]
-
-print(flat_list_loop)
-print(flat_list_comp)
+print(flatten_list(nested))
+print(flatten_list_comp(nested))

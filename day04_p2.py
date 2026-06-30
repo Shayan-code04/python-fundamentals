@@ -2,10 +2,7 @@ product=input("Enter item to add to cart: ")
 quantity=input("Enter quantity: ")
 price=input("Enter price: ")
 
-def create_cart():
-    return [{ "item": product, "quantity": int(quantity) , "price": float(price) , "total": float(quantity) * float(price) }]
-
-cart = create_cart()
+cart= [{ "item": product, "quantity": int(quantity) , "price": float(price) , "total": float(quantity) * float(price) }]
 for item in cart:
     cart_items = input("Do you want to add another item? (yes/no): ")
     while cart_items.lower()=="yes":
@@ -14,7 +11,6 @@ for item in cart:
         price=input("Enter price: ")
         cart.append({ "item": product, "quantity": int(quantity) , "price": float(price) , "total": float(quantity) * float(price) })
         cart_items = input("Do you want to add another item? (yes/no): ")
-        cart_items.lower() == "yes"
         print("Thank you for shopping with us.")
     
     break
