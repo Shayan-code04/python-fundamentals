@@ -1,0 +1,1 @@
+print(issubclass(SavingsAccount, CurrentAccount))
