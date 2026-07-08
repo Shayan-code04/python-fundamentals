@@ -4,7 +4,7 @@ class InvalidAmountError(Exception):
 class InsufficientFundsError(Exception):
     pass
 
-
+"""Represents a bank account with deposit and withdrawal operations."""
 
 class BankAccount:
     def __init__(self,account_number,account_holder_name,balance):
@@ -13,6 +13,7 @@ class BankAccount:
         self.balance=balance
 
     def deposit(self,amount): 
+        """Deposit money into the account."""
         if amount>0:
             self.balance+=amount
             print(f"Deposited {amount}. New balance: {self.balance}")
@@ -20,6 +21,7 @@ class BankAccount:
             
 
     def withdraw(self, amount):
+      """Withdraw money from the account."""
       if amount <= 0:
         raise InvalidAmountError("Withdrawal amount must be positive.")
 
