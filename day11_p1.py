@@ -12,7 +12,7 @@ class BankAccount:
         self.account_holder_name=account_holder_name
         self.balance=balance
 
-    def deposit(self,amount): 
+    def deposit(self,amount:float)->None: 
         """Deposit money into the account."""
         if amount>0:
             self.balance+=amount
@@ -20,7 +20,7 @@ class BankAccount:
         else: raise InvalidAmountError("Deposit amount must be positive.")
             
 
-    def withdraw(self, amount):
+    def withdraw(self, amount: float):
       """Withdraw money from the account."""
       if amount <= 0:
         raise InvalidAmountError("Withdrawal amount must be positive.")
